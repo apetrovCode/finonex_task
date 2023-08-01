@@ -1,5 +1,13 @@
 # finonex_task
 Kubernetes-based Microservices Architecture on AWS EC2
+
+Features
+Nginx Ingress Controller: Manages path-based routing to the microservices.
+Scalability: The Scale Service autoscales based on CPU utilization, with 80% as the threshold.
+Database: A shared MySQL service that houses the customers database feeding the Content Service.
+Terraform: Infrastructure-as-code using Terraform for provisioning EC2 and related AWS resources. Found in the main branch.
+Helm Charts: Each service branch has its own Helm chart for deployment.
+
 1. Architecture Overview
 The system is a web application running on a single-node Kubernetes cluster provisioned on an AWS EC2 instance. The application is composed of four distinct microservices:
 
