@@ -1,0 +1,7 @@
+randomName:
+  replicaCount: 1
+  image:
+    repository: random-name-image-repo
+    tag: latest
+...
+
