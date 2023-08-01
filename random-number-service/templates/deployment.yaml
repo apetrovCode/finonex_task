@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-number
+spec:
+  replicas: {{ .Values.randomNumber.replicaCount }}
+  ...
+  containers:
+  - name: random-number-container
+    image: "{{ .Values.randomNumber.image.repository }}:{{ .Values.randomNumber.image.tag }}"
+
