@@ -17,5 +17,5 @@ COPY . .
 EXPOSE 5000
 
 # Command to run the application
-CMD ["python", "random_number_service.py"]
+CMD ["python", "random_name_service.py"]
 
