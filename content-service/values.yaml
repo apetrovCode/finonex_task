@@ -1,7 +1,0 @@
-content:
-  replicaCount: 1
-  image:
-    repository: content-image-repo
-    tag: latest
-...
-

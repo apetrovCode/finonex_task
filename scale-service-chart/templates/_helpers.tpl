@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "content-service.name" -}}
+{{- define "scale-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "content-service.fullname" -}}
+{{- define "scale-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "content-service.chart" -}}
+{{- define "scale-service.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "content-service.labels" -}}
-helm.sh/chart: {{ include "content-service.chart" . }}
-{{ include "content-service.selectorLabels" . }}
+{{- define "scale-service.labels" -}}
+helm.sh/chart: {{ include "scale-service.chart" . }}
+{{ include "scale-service.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "content-service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "content-service.name" . }}
+{{- define "scale-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "scale-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "content-service.serviceAccountName" -}}
+{{- define "scale-service.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "content-service.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "scale-service.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

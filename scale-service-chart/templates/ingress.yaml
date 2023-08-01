@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: content-ingress
+  name: scale-service-ingress
 spec:
   rules:
   - http:
       paths:
-      - path: /content
+      - path: /start
         pathType: Prefix
         backend:
           service:
-            name: content 
+            name: scale-service
             port:
               number: 80
 
